@@ -1,4 +1,4 @@
-Viper
+Viper 0.0.5
 =====
 
 Python command shell - Work in progress.
