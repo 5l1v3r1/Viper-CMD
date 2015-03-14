@@ -132,12 +132,15 @@ class Vipercmd(cmd.Cmd):
         print(cd)
         try:
 	    #Had to switch to 2.7 string input because input() and os.chdir() are incompatable?
-            mow = raw_input("What directory? ")
+            mow = raw_input("What directory?: ")
             os.chdir(mow)
         except NameError:
             print('Name error Uh oh.')
         except SyntaxError:
             print('Syntax error Uh oh.')
+        except WindowsError:
+            print('Windows can not find the specified directory.'
+                  'Did you include the entire path?')
         else:
             print('Directory changed to', mow)
 	    
