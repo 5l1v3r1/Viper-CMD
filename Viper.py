@@ -9,7 +9,7 @@ import base64
 import Overwrite
 from os import listdir
 from os.path import isfile, join
-from passlib.hash import pbkdf2_sha256
+#from passlib.hash import pbkdf2_sha256
 
 print('/$/       //                         ')
 print('\$\      //                          ')
