@@ -129,11 +129,12 @@ class Vipercmd(cmd.Cmd):
 
     def do_autocleanup(self):
        clean = './Cleanup.sh'
-       subprocess.call(clean, shell = True)
-       print("Only works on Debian Linux type distros.")
-       print("Starting Cleanup!")
+       try:
+           subprocess.call(clean, shell = True)
+           print("Only works on Debian Linux type distros.")
+           print("Starting Cleanup!")
        except:
-       	print("Not a Debian Linux distro?")
+       	   print("Not a Debian Linux distro?")
        #Needs testing
 
     def do_listcd(self, cd):
