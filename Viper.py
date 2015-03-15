@@ -35,9 +35,9 @@ class Vipercmd(cmd.Cmd):
 
     def do_greet(self, person):
         if person:
-            print tcolors.WARNING + "hi" ,person + tcolors.ENDC
+            print(tcolors.WARNING + "hi" ,person + tcolors.ENDC)
         else:
-            print tcolors.WARNING + "hi" + tcolors.ENDC
+            print(tcolors.WARNING + "hi" + tcolors.ENDC)
             
     def do_help(self, commands):
         print('Current list of commands: greet, portscan, honeypot,'
