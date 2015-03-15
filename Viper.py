@@ -127,15 +127,14 @@ class Vipercmd(cmd.Cmd):
         #C and Bash work so far.
         f = subprocess.call(raw_input("Which file would you like to run? :"), shell=True)
 
-    def do_autocleanup(self):
-       clean = './Cleanup.sh'
+    def do_autocleanup(self, clean):
+       print("Only works on Debian Linux type distros.")
+       clean = 'sh ./Cleanup.sh'
        try:
            subprocess.call(clean, shell = True)
-           print("Only works on Debian Linux type distros.")
-           print("Starting Cleanup!")
+           print("Finished system cleanup!")
        except:
        	   print("Not a Debian Linux distro?")
-       #Needs testing
 
     def do_listcd(self, cd):
 	    cd = os.getcwd()
