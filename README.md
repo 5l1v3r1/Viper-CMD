@@ -1,7 +1,7 @@
 Viper CMD 0.0.5
 =====
 To-do:
-Add color text terminal print().
+Add color to terminal print() on exceptions.
 
 Python command shell - Work in progress. 
 
