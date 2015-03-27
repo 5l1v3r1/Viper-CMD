@@ -7,10 +7,8 @@ import shutil
 import urllib
 import base64
 import Overwrite
-import tc
 from os import listdir
 from os.path import isfile, join
-
 #from passlib.hash import pbkdf2_sha256
 
 print('/$/       //                         ')
@@ -28,11 +26,18 @@ print('Viper Alpha 0.0.8\n'
 print ('Welcome to Viper command terminal. Type help for list of commands.')
 #I had to use Python 2.7 becuase some of the modules weren't cross compatable.
 
+class tcolors:
+    WARNING = '\033[93m'
+    ENDC = '\033[0m'
+    
 class Vipercmd(cmd.Cmd):
     #Command example
 
     def do_greet(self, person):
-            print(tc.tcolors.WARNING + "hi" + tc.tcolors.ENDC)
+        if person:
+            print(tcolors.WARNING + "hi" ,person + tcolors.ENDC)
+        else:
+            print(tcolors.WARNING + "hi" + tcolors.ENDC)
             
     def do_help(self, commands):
         print('Current list of commands: greet, portscan, honeypot,'
@@ -53,7 +58,7 @@ class Vipercmd(cmd.Cmd):
                     sock.close()
                     return
         except socket.error:
-            print(tc.tcolors.SYNTAX + "Couldn't connect to server" + tc.tcolors.ENDC)
+            print "Couldn't connect to server"
 
     def do_honeypot(sock, server_address):
 
@@ -62,7 +67,7 @@ class Vipercmd(cmd.Cmd):
        try:
            sock.bind(server_address)
        except socket.error:
-           print(tc.tcolors.SYNTAX + "Socket error, sudo run Viper or change ports." + tc.tcolors.ENDC)
+           print("Socket error, sudo run Viper or change ports.")
        else:
            while True:
                print >>sys.stderr, 'starting up on %s port %s' % sock.getsockname()
@@ -113,9 +118,9 @@ class Vipercmd(cmd.Cmd):
            #IOError
            urllib.urlretrieve(web,files)
        except IOError:
-           print(tc.tcolors.SYNTAX + 'File does not exist or url.' + tc.tcolors.ENDC)
+           print('File does not exist or url.')
        else:
-           print(tc.tcolors.SUCCESS + 'File downloaded!' + tc.tcolors.ENDC)
+           print('File downloaded!')
 
     def do_runf(self, f):
         print('If executing C or C++ program put ./ for Bash or Perl sh in front of file name.')
@@ -123,13 +128,13 @@ class Vipercmd(cmd.Cmd):
         f = subprocess.call(raw_input("Which file would you like to run? :"), shell=True)
 
     def do_autocleanup(self, clean):
-       print(tc.tcolors.WARNING + "Only works on Debian Linux type distros." + tc.tcolors.ENDC)
+       print("Only works on Debian Linux type distros.")
        clean = 'sh ./Cleanup.sh'
        try:
            subprocess.call(clean, shell = True)
-           print(tc.tcolors.SUCCESS + "Finished system cleanup!" + tc.tcolors.ENDC)
+           print("Finished system cleanup!")
        except:
-       	   print(tc.tcolors.WARNING + "Not a Debian Linux distro?" + tc.tcolors.ENDC)
+       	   print("Not a Debian Linux distro?")
 
     def do_listcd(self, cd):
 	    cd = os.getcwd()
@@ -161,19 +166,19 @@ class Vipercmd(cmd.Cmd):
         try:
             os.remove(F)
         except OSError:
-            print(tc.tcolors.SYNTAX + 'File does not exist.' + tc.tcolors.ENDC)
+            print('File does not exist.')
         else:
-            print(tc.tcolors.SUCCESS + 'File removed!' + tc.tcolors.ENDC)
+            print('File removed!')
 
     def do_remdir(self, F):
-        print(tc.tcolors.WARNING + 'WARNING: This command deletes the whole directory and contents.' + tc.tcolors.ENDC)
+        print('WARNING: This command deletes the whole directory and contents.')
         F = raw_input("What directory would you like to remove? :")
         try:
             shutil.rmtree(F)
         except OSError:
-            print(tc.tcolors.SYNTAX + 'Directory does not exist' + tc.tcolors.ENDC)
+            print('Directory does not exist')
         else:
-            print(tc.tcolors.SUCCESS + 'Entire directory removed!' + tc.tcolors.ENDC)
+            print('Entire directory removed!')
 
     def do_readf(self, yeeee):
         yeeee = raw_input('What file do you want to read? :')
@@ -181,9 +186,11 @@ class Vipercmd(cmd.Cmd):
             f = open(yeeee)
             print f.readlines()
         except IOError:
-            print(tc.tcolors.SYNTAX + 'File not found.' + tc.tcolors.ENDC)
+            print('File not found.')
+        #IOError
 
     def do_overwrite(self, yeeee):
+        #Shred function in the works.
         yo = Overwrite.Mystuff()
         yo.overwrite()
 
@@ -201,12 +208,12 @@ class Vipercmd(cmd.Cmd):
     def do_b64(self, passwd):
         riot = raw_input('Input password to encrypt. :')
         woh = base64.b64encode(riot)
-        print(tc.tcolors.SUCCESS + woh + tc.tcolors.ENDC)
+        print(woh)
 
     def do_decryptb64(self, decrypt):
         decode = raw_input('Input password to decrypt. :')
         decrypt = base64.b64decode(decode)
-        print(tc.tcolors.SUCCESS + decrypt + tc.tcolors.ENDC)
+        print(decrypt)
 
     def do_EOF(self, line):
         return True
