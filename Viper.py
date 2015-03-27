@@ -23,7 +23,7 @@ print('            --  $$$$$  $      $      ')
 print('                $       $$$$  $      ')
 print('                $                    ')
 print('\n')
-print('Viper Alpha 0.0.5\n'
+print('Viper Alpha 0.0.8\n'
       'by B3nac')
 print ('Welcome to Viper command terminal. Type help for list of commands.')
 #I had to use Python 2.7 becuase some of the modules weren't cross compatable.
