@@ -34,7 +34,7 @@ class Vipercmd(cmd.Cmd):
             
     def do_help(self, commands):
         print('Current list of commands: greet, portscan, honeypot,'
-              ' listcd, dirchange, dl, listf, remf, remdir, readf, runf, sechash, b64, exit')
+              ' listcd, dirchange, dl, listf, remf, remdir, readf, runf, b64, exit')
 
     #Security Functions.
     #---------------------------------------------------------------------
