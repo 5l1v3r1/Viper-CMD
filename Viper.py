@@ -11,8 +11,6 @@ import tc
 from os import listdir
 from os.path import isfile, join
 
-#from passlib.hash import pbkdf2_sha256
-
 print('/$/       //                         ')
 print('\$\      //                          ')
 print(' \$\    //  __                       ')
@@ -187,17 +185,6 @@ class Vipercmd(cmd.Cmd):
         yo = Overwrite.Mystuff()
         yo.overwrite()
 
-    def do_sechash(self, passwd):
-        riot = raw_input('Input password. :')
-        passwd = pbkdf2_sha256.encrypt(riot, rounds=200000, salt_size = 16)
-        print(passwd)
-        valid = pbkdf2_sha256.verify(riot, passwd)
-        print(valid)
-        #False?
-        f = open("passwd.txt", "a")
-        f.write(str(passwd))
-
-	    #ValueError: Empty mode string.
     def do_b64(self, passwd):
         riot = raw_input('Input password to encrypt. :')
         woh = base64.b64encode(riot)
