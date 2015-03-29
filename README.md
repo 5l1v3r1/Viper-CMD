@@ -1,6 +1,8 @@
 Viper CMD 0.0.8
 =====
-##To-do: + Add list of bugs to fix and features to add for version 1.00.
+##To-do: 
++ Add list of bugs to fix and features to add for version 1.00.
+
 Viper CMD 0.0.5
 =====
 To-do:
