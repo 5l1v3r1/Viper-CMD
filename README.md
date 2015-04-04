@@ -1,6 +1,7 @@
 Viper CMD 0.0.8
 =====
 Full functionallity with Python 2.7 so-so with Python 3.
+####Linux updates
 + Added trashbin cleanup function.
 + Now able to open Nautilus from CMD.
 
