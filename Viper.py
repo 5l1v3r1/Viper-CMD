@@ -11,19 +11,19 @@ import tc
 from os import listdir
 from os.path import isfile, join
 
-print('/$/       //                         ')
-print('\$\      //                          ')
-print(' \$\    //  __                       ')
-print('  \$\  //   ||  $$$$$  $$$$$  $$$$   ')
-print('   \$\//    ||  $    $ $   $  $   $  ')
-print('    \$/     ||  $    $ $ $$$  $      ')
-print('            --  $$$$$  $      $      ')
-print('                $       $$$$  $      ')
-print('                $                    ')
+print(tc.tcolors.WARNING +'/$/       //                         '+ tc.tcolors.ENDC)
+print(tc.tcolors.WARNING +'\$\      //                          '+ tc.tcolors.ENDC)
+print(tc.tcolors.WARNING +' \$\    //  __                       '+ tc.tcolors.ENDC)
+print(tc.tcolors.WARNING +'  \$\  //   ||  $$$$$  $$$$$  $$$$   '+ tc.tcolors.ENDC)
+print(tc.tcolors.SYNTAX +'   \$\//    ||  $    $ $   $  $   $  '+ tc.tcolors.ENDC)
+print(tc.tcolors.SYNTAX +'    \$/     ||  $    $ $ $$$  $      '+ tc.tcolors.ENDC)
+print(tc.tcolors.WARNING +'            --  $$$$$  $      $      '+ tc.tcolors.ENDC)
+print(tc.tcolors.WARNING +'                $       $$$$  $      '+ tc.tcolors.ENDC)
+print(tc.tcolors.WARNING +'                $                    '+ tc.tcolors.ENDC)
 print('\n')
-print('Viper Alpha 0.0.8\n'
-      'by B3nac')
-print ('Welcome to Viper command terminal. Type help for list of commands.')
+print(tc.tcolors.SUCCESS +'Viper Alpha 0.0.9\n'
+      'by B3nac'+ tc.tcolors.ENDC)
+print(tc.tcolors.SYNTAX +'Welcome to Viper command terminal. Type help for list of commands.'+ tc.tcolors.ENDC)
 #I had to use Python 2.7 becuase some of the modules weren't cross compatable.
 
 class Vipercmd(cmd.Cmd):
@@ -34,7 +34,7 @@ class Vipercmd(cmd.Cmd):
             
     def do_help(self, commands):
         print('Current list of commands: greet, portscan, honeypot,'
-              ' listcd, dirchange, dl, listf, remf, remdir, readf, runf, b64, exit')
+              ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, exit')
 
     #Security Functions.
     #---------------------------------------------------------------------
@@ -128,6 +128,24 @@ class Vipercmd(cmd.Cmd):
            print(tc.tcolors.SUCCESS + "Finished system cleanup!" + tc.tcolors.ENDC)
        except:
        	   print(tc.tcolors.WARNING + "Not a Debian Linux distro?" + tc.tcolors.ENDC)
+
+    def do_clean_trash(self, t):
+       print(tc.tcolors.WARNING + "Only works on Debian Linux type distros." + tc.tcolors.ENDC)
+       t = 'sh ./cleantrash.sh'
+       try:
+           subprocess.call(t, shell = True)
+           print(tc.tcolors.SUCCESS + "Finished trashbin cleanup!" + tc.tcolors.ENDC)
+       except:
+           print(tc.tcolors.WARNING + "Not a Debian Linux distro?" + tc.tcolors.ENDC)
+
+    def do_nautilus(self, o):
+       print(tc.tcolors.WARNING + "Only works on Debian Linux type distros." + tc.tcolors.ENDC)
+       o = 'sh ./opennautilus.sh'
+       try:
+           subprocess.call(o, shell = True)
+           print(tc.tcolors.SUCCESS + "Opened Nautilus!" + tc.tcolors.ENDC)
+       except:
+           print(tc.tcolors.WARNING + "Not a Debian Linux distro?" + tc.tcolors.ENDC)
 
     def do_listcd(self, cd):
 	    cd = os.getcwd()
