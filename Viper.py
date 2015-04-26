@@ -8,6 +8,7 @@ import urllib
 import base64
 import Overwrite
 import tc
+import pygame
 from os import listdir
 from os.path import isfile, join
 
@@ -26,15 +27,27 @@ print(tc.tcolors.SUCCESS +'Viper Alpha 0.0.9\n'
 print(tc.tcolors.SYNTAX +'Welcome to Viper command terminal. Type help for list of commands.'+ tc.tcolors.ENDC)
 #I had to use Python 2.7 becuase some of the modules weren't cross compatable.
 
+
 class Vipercmd(cmd.Cmd):
     #Command example
 
     def do_greet(self, person):
             print(tc.tcolors.WARNING + "hi" + tc.tcolors.ENDC)
-            
+
     def do_help(self, commands):
         print('Current list of commands: greet, portscan, honeypot,'
               ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, exit')
+
+    def do_playmusic(self, music):
+        #Works in Windows.
+        #To-do add list.
+        pygame.init()
+        pygame.mixer.pre_init(44100, -16, 2, 128)
+        print('Type the name of the song name with extension. ex: song.ogg')
+        print(tc.colors.WARNING + 'Needs to be in same directory.' + tc.tcolors.ENDC) 
+        music = raw_input('What music would you like to play? ')
+        pygame.mixer.music.load(music)
+        pygame.mixer.music.play()
 
     #Security Functions.
     #---------------------------------------------------------------------
