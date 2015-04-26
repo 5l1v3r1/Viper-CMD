@@ -9,6 +9,8 @@ Full functionallity with Python 2.7 so-so with Python 3.
 + Add list of bugs to fix and features to add for version 1.00.
 + Convert more functions to Python 3 for efficiency.
 ~~+ Add mp3 play function.~~
++ Add list sound to music function.
+
 
 Viper CMD 0.0.5
 =====
