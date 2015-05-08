@@ -1,4 +1,4 @@
-Viper CMD 0.0.8
+Viper CMD 0.0.9
 =====
 Full functionallity with Python 2.7 so-so with Python 3.
 ####Linux updates
