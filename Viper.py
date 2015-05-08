@@ -43,11 +43,14 @@ class Vipercmd(cmd.Cmd):
         #To-do add list.
         pygame.init()
         pygame.mixer.pre_init(44100, -16, 2, 128)
-        print('Type the name of the song name with extension. ex: song.ogg')
-        print(tc.colors.WARNING + 'Needs to be in same directory.' + tc.tcolors.ENDC) 
-        music = raw_input('What music would you like to play? ')
-        pygame.mixer.music.load(music)
-        pygame.mixer.music.play()
+        print(tc.tcolors.SYNTAX + 'Type the name of the song name with extension. ex: song.ogg' + tc.tcolors.ENDC)
+        print(tc.tcolors.WARNING + 'WARNING: Needs to be in same directory.' + tc.tcolors.ENDC)
+        try: 
+            music = raw_input('What music would you like to play? ')
+            pygame.mixer.music.load(music)
+            pygame.mixer.music.play()
+        except pygame.error:
+			print(tc.tcolors.SYNTAX + 'No song with that name in this directory.' + tc.tcolors.ENDC)
 
     #Security Functions.
     #---------------------------------------------------------------------
@@ -60,7 +63,7 @@ class Vipercmd(cmd.Cmd):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 result = sock.connect_ex((remoteconnectionIP, port))
                 if result == 0:
-                    print "Port {}: \t Open".format(port)
+                    print tc.tcolors.SYNTAX + "Port {}: \t Open".format(port) + tc.tcolors.ENDC
                     sock.close()
                     return
         except socket.error:
@@ -117,11 +120,10 @@ class Vipercmd(cmd.Cmd):
 	#File and Navigation functions --------------------------------------
 
     def do_dl(web, files):
-       print('Downloads file to Viper directory.')
+       print(tc.tcolors.SYNTAX + 'Downloads file to Viper directory.' + tc.tcolors.ENDC)
        try:
            web = raw_input('What is the url?')
            files = raw_input('What file?')
-           #IOError
            urllib.urlretrieve(web,files)
        except IOError:
            print(tc.tcolors.SYNTAX + 'File does not exist or url.' + tc.tcolors.ENDC)
@@ -132,7 +134,7 @@ class Vipercmd(cmd.Cmd):
         print('If executing C or C++ program put ./ for Bash or Perl sh in front of file name.')
         #C and Bash work so far.
         f = subprocess.call(raw_input("Which file would you like to run? :"), shell=True)
-
+            			
     def do_autocleanup(self, clean):
        print(tc.tcolors.WARNING + "Only works on Debian Linux type distros." + tc.tcolors.ENDC)
        clean = 'sh ./Cleanup.sh'
