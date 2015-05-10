@@ -1,4 +1,4 @@
-Viper CMD 0.9.9
+Viper CMD 1.0.0
 =====
 Full functionallity with Python 2.7 so-so with Python 3.
 ####Linux updates
@@ -8,10 +8,6 @@ Full functionallity with Python 2.7 so-so with Python 3.
 ##To-do: 
 + ~~Get ANSI colors to work in Windows.~~ More trouble than It's worth. 
 + Convert more functions to Python 3 for efficiency.
-<<<<<<< HEAD
-~~+ Add mp3 play function.~~
-=======
->>>>>>> origin/master
 
 Python command shell - Work in progress. 
 
