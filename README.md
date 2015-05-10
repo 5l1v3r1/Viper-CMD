@@ -8,7 +8,6 @@ Full functionallity with Python 2.7 so-so with Python 3.
 ##To-do: 
 + ~~Get ANSI colors to work in Windows.~~ More trouble than It's worth. 
 + Convert more functions to Python 3 for efficiency.
-~~+ Add mp3 play function.~~
 
 Python command shell - Work in progress. 
 
