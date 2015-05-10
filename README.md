@@ -1,4 +1,4 @@
-Viper CMD 0.0.8
+Viper CMD 0.9.9
 =====
 Full functionallity with Python 2.7 so-so with Python 3.
 ####Linux updates
@@ -6,17 +6,9 @@ Full functionallity with Python 2.7 so-so with Python 3.
 + Now able to open Nautilus from CMD.
 
 ##To-do: 
-+ Get colors to work in Windows.
-+ Add list of bugs to fix and features to add for version 1.00.
++ ~~Get ANSI colors to work in Windows.~~ More trouble than It's worth. 
 + Convert more functions to Python 3 for efficiency.
 ~~+ Add mp3 play function.~~
-+ Add list sound to music function.
-
-
-Viper CMD 0.0.5
-=====
-To-do:
-~~Add color to terminal print() on exceptions.~~
 
 Python command shell - Work in progress. 
 

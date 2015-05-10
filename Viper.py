@@ -22,7 +22,7 @@ print(tc.tcolors.WARNING +'            --  $$$$$  $      $      '+ tc.tcolors.EN
 print(tc.tcolors.WARNING +'                $       $$$$  $      '+ tc.tcolors.ENDC)
 print(tc.tcolors.WARNING +'                $                    '+ tc.tcolors.ENDC)
 print('\n')
-print(tc.tcolors.SUCCESS +'Viper Alpha 0.0.9\n'
+print(tc.tcolors.SUCCESS +'Viper Alpha 1.0.0\n'
       'by B3nac'+ tc.tcolors.ENDC)
 print(tc.tcolors.SYNTAX +'Welcome to Viper command terminal. Type help for list of commands.'+ tc.tcolors.ENDC)
 #I had to use Python 2.7 becuase some of the modules weren't cross compatable.
@@ -50,15 +50,14 @@ class Vipercmd(cmd.Cmd):
             pygame.mixer.music.load(music)
             pygame.mixer.music.play()
         except pygame.error:
-			print(tc.tcolors.SYNTAX + 'No song with that name in this directory.' + tc.tcolors.ENDC)
+            print(tc.tcolors.SYNTAX + 'No song with that name in this directory.' + tc.tcolors.ENDC)
 
     #Security Functions.
     #---------------------------------------------------------------------
     def do_portscan(server_address, self):
-        server_address = raw_input("Enter a remote host :")
-        remoteconnectionIP = socket.gethostbyname(server_address)
-
         try:
+            server_address = int(raw_input("Enter a remote host: "))
+            remoteconnectionIP = socket.gethostbyname(server_address)
             for port in range(1,1025):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 result = sock.connect_ex((remoteconnectionIP, port))
@@ -67,7 +66,11 @@ class Vipercmd(cmd.Cmd):
                     sock.close()
                     return
         except socket.error:
-            print(tc.tcolors.SYNTAX + "Couldn't connect to server" + tc.tcolors.ENDC)
+            print(tc.tcolors.SYNTAX + "Couldn't connect to server!" + tc.tcolors.ENDC)
+        except socket.gaierror:
+            print(tc.tcolors.SYNTAX + "Invalid address!" + tc.tcolors.ENDC)
+        except ValueError:
+            print(tc.tcolors.SYNTAX + "Invalid input value!" + tc.tcolors.ENDC)
 
     def do_honeypot(sock, server_address):
 
@@ -188,6 +191,7 @@ class Vipercmd(cmd.Cmd):
         print(os.listdir(mypath))
 
     def do_remf(self, F):
+        print(tc.tcolors.WARNING + 'File does not get sent to trashbin! It gets permanently deleted!' + tc.tcolors.ENDC)
         F = raw_input("What file would you like to remove? :")
         try:
             os.remove(F)
