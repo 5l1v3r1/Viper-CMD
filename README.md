@@ -1,6 +1,11 @@
 Viper CMD 1.0.0
 =====
++ Python command shell
+Works in Windows and Linux.
 Full functionallity with Python 2.7 so-so with Python 3.
+
+A fun project I've been working on. I want to see exactly how much I can do with a practically pure Python CMD module. Going to keep it moslty Python 2.7 since alot of modules aren't compatable with Python 3 yet. Slowly but surely will go from 2 to 3.
+
 ####Linux updates
 + Added trashbin cleanup function.
 + Now able to open Nautilus from CMD.
@@ -9,12 +14,9 @@ Full functionallity with Python 2.7 so-so with Python 3.
 + ~~Get ANSI colors to work in Windows.~~ More trouble than It's worth. 
 + Convert more functions to Python 3 for efficiency.
 
-Python command shell - Work in progress. 
-
-A fun project I've been working on. I want to see exactly how much I can do with a practically pure Python CMD module. Going to keep it moslty Python 2.7 since alot of modules aren't compatable with Python 3 yet. Slowly but surely will go from 2 to 3.
-
 When using dirchange command the full path to directory must be put in. Working on making this easier.
 
+##Instructions
 **Linux -**
 Run from terminal - python Viper.py
 
