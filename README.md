@@ -19,7 +19,7 @@ When using dirchange command the full path to directory must be put in. Working 
 Run from terminal - python Viper.py
 
 **Windows -**
-Run from Python Shell. Most of the functions work on windows also, still testing on Windows.
+Run from Python Shell or double click Viper.py. Most of the functions work on windows also, still testing on Windows.
 
 
 
