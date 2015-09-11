@@ -62,7 +62,7 @@ class Vipercmd(cmd.Cmd):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 result = sock.connect_ex((remoteconnectionIP, port))
                 if result == 0:
-                    print tc.tcolors.SYNTAX + "Port {}: \t Open".format(port) + tc.tcolors.ENDC
+                    print(tc.tcolors.SYNTAX + "Port {}: \t Open".format(port) + tc.tcolors.ENDC)
                     sock.close()
                     return
         except socket.error:
@@ -192,7 +192,7 @@ class Vipercmd(cmd.Cmd):
 
     def do_remf(self, F):
         print(tc.tcolors.WARNING + 'File does not get sent to trashbin! It gets permanently deleted!' + tc.tcolors.ENDC)
-        F = raw_input("What file would you like to remove? :")
+        F = input("What file would you like to remove? :")
         try:
             os.remove(F)
         except OSError:
@@ -202,7 +202,7 @@ class Vipercmd(cmd.Cmd):
 
     def do_remdir(self, F):
         print(tc.tcolors.WARNING + 'WARNING: This command deletes the whole directory and contents.' + tc.tcolors.ENDC)
-        F = raw_input("What directory would you like to remove? :")
+        F = input("What directory would you like to remove? :")
         try:
             shutil.rmtree(F)
         except OSError:
@@ -211,10 +211,10 @@ class Vipercmd(cmd.Cmd):
             print(tc.tcolors.SUCCESS + 'Entire directory removed!' + tc.tcolors.ENDC)
 
     def do_readf(self, yeeee):
-        yeeee = raw_input('What file do you want to read? :')
+        yeeee = input('What file do you want to read? :')
         try:
             f = open(yeeee)
-            print f.readlines()
+            print(f.readlines())
         except IOError:
             print(tc.tcolors.SYNTAX + 'File not found.' + tc.tcolors.ENDC)
 
@@ -223,14 +223,14 @@ class Vipercmd(cmd.Cmd):
         yo.overwrite()
 
     def do_b64(self, passwd):
-        riot = raw_input('Input password to encrypt. :')
-        woh = base64.b64encode(riot)
-        print(tc.tcolors.SUCCESS + woh + tc.tcolors.ENDC)
+        riot = input('Input password to encrypt. :')
+        woh = base64.b64encode(riot.encode('ascii'))
+        print(tc.tcolors.SUCCESS + woh.decode() + tc.tcolors.ENDC)
 
     def do_decryptb64(self, decrypt):
-        decode = raw_input('Input password to decrypt. :')
-        decrypt = base64.b64decode(decode)
-        print(tc.tcolors.SUCCESS + decrypt + tc.tcolors.ENDC)
+        decode = input('Input password to decrypt. :')
+        decrypt = base64.b64decode(decode.encode('ascii'))
+        print(tc.tcolors.SUCCESS + decrypt.decode() + tc.tcolors.ENDC)
 
     def do_EOF(self, line):
         return True
