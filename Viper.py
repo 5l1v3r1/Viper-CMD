@@ -46,7 +46,7 @@ class Vipercmd(cmd.Cmd):
         print(tc.tcolors.SYNTAX + 'Type the name of the song name with extension. ex: song.ogg' + tc.tcolors.ENDC)
         print(tc.tcolors.WARNING + 'WARNING: Needs to be in same directory.' + tc.tcolors.ENDC)
         try: 
-            music = raw_input('What music would you like to play? ')
+            music = input('What music would you like to play? ')
             pygame.mixer.music.load(music)
             pygame.mixer.music.play()
         except pygame.error:
@@ -82,17 +82,18 @@ class Vipercmd(cmd.Cmd):
            print(tc.tcolors.SYNTAX + "Socket error, sudo run Viper or change ports." + tc.tcolors.ENDC)
        else:
            while True:
-               print >>sys.stderr, 'starting up on %s port %s' % sock.getsockname()
+               print('starting up on', server_address, file = sys.stderr)
+               sock.getsockname()
                sock.listen(1)
-               print >>sys.stderr, 'waiting for a connection from sneaky mofackles.'
+               print('waiting for a connection from sneaky mofackles.', file = sys.stderr)
                connection, client_address = sock.accept()
                compname = socket.gethostname()
                try:
-                   print >>sys.stderr, 'client connected:', client_address
-                   print >>sys.stderr, 'Computer name:', compname
+                   print('client connected:', client_address, file = sys.stderr)
+                   print('Computer name:', compname, file = sys.stderr)
                    while True:
                        data = connection.recv(16)
-                       print >>sys.stderr, 'recieved "%s"' % data
+                       print('recieved "%s"', data, file = sys.stderr)
                        if data:
                            connection.sendall(data)
                            f = open("person.txt", "a")
