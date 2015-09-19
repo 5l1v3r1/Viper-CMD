@@ -9,7 +9,7 @@ if [ -n "$(command -v apt-get)" ]; then
     apt-get -y install python3
 
 elif [ -n "$(command -v pacman)" ]; then
-	pacman -S python
+    pacman -S python
 else
-	echo "apt-get and pacman aren't the current package managers?"
-	exit 
+    echo "apt-get and pacman aren't the current package managers?"
+    exit 
