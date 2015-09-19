@@ -22,7 +22,7 @@ print(tc.tcolors.WARNING +'            --  $$$$$  $      $      '+ tc.tcolors.EN
 print(tc.tcolors.WARNING +'                $       $$$$  $      '+ tc.tcolors.ENDC)
 print(tc.tcolors.WARNING +'                $                    '+ tc.tcolors.ENDC)
 print('\n')
-print(tc.tcolors.SUCCESS +'Viper Alpha 1.0.0\n'
+print(tc.tcolors.SUCCESS +'Viper-CMD Alpha 1.0.0\n'
       'by B3nac'+ tc.tcolors.ENDC)
 print(tc.tcolors.SYNTAX +'Welcome to Viper command terminal. Type help for list of commands.'+ tc.tcolors.ENDC)
 #I had to use Python 2.7 becuase some of the modules weren't cross compatable.
@@ -140,31 +140,31 @@ class Vipercmd(cmd.Cmd):
         f = subprocess.call(raw_input("Which file would you like to run? :"), shell=True)
             			
     def do_autocleanup(self, clean):
-       print(tc.tcolors.WARNING + "Only works on Debian Linux type distros." + tc.tcolors.ENDC)
+       print(tc.tcolors.WARNING + "Only works on Debian or Arch Linux type distros." + tc.tcolors.ENDC)
        clean = 'sh ./Cleanup.sh'
        try:
            subprocess.call(clean, shell = True)
            print(tc.tcolors.SUCCESS + "Finished system cleanup!" + tc.tcolors.ENDC)
        except:
-       	   print(tc.tcolors.WARNING + "Not a Debian Linux distro?" + tc.tcolors.ENDC)
+       	   print(tc.tcolors.WARNING + "Not a Debian or Arch Linux distro?" + tc.tcolors.ENDC)
 
     def do_clean_trash(self, t):
-       print(tc.tcolors.WARNING + "Only works on Debian Linux type distros." + tc.tcolors.ENDC)
+       print(tc.tcolors.WARNING + "Only works on Debian or Arch Linux type distros." + tc.tcolors.ENDC)
        t = 'sh ./cleantrash.sh'
        try:
            subprocess.call(t, shell = True)
            print(tc.tcolors.SUCCESS + "Finished trashbin cleanup!" + tc.tcolors.ENDC)
        except:
-           print(tc.tcolors.WARNING + "Not a Debian Linux distro?" + tc.tcolors.ENDC)
+           print(tc.tcolors.WARNING + "Not a Debian or Arch Linux distro?" + tc.tcolors.ENDC)
 
     def do_nautilus(self, o):
-       print(tc.tcolors.WARNING + "Only works on Debian Linux and Arch Linux type distros." + tc.tcolors.ENDC)
+       print(tc.tcolors.WARNING + "Only works on Debian and Arch Linux type distros." + tc.tcolors.ENDC)
        o = 'sh ./opennautilus.sh'
        try:
            subprocess.call(o, shell = True)
            print(tc.tcolors.SUCCESS + "Opened Nautilus!" + tc.tcolors.ENDC)
        except:
-           print(tc.tcolors.WARNING + "Not a Debian Linux distro?" + tc.tcolors.ENDC)
+           print(tc.tcolors.WARNING + "Not a Debian or Arch Linux distro?" + tc.tcolors.ENDC)
 
     def do_listcd(self, cd):
 	    cd = os.getcwd()
