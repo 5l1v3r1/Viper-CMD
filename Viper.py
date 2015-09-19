@@ -158,7 +158,7 @@ class Vipercmd(cmd.Cmd):
            print(tc.tcolors.WARNING + "Not a Debian Linux distro?" + tc.tcolors.ENDC)
 
     def do_nautilus(self, o):
-       print(tc.tcolors.WARNING + "Only works on Debian Linux type distros." + tc.tcolors.ENDC)
+       print(tc.tcolors.WARNING + "Only works on Debian Linux and Arch Linux type distros." + tc.tcolors.ENDC)
        o = 'sh ./opennautilus.sh'
        try:
            subprocess.call(o, shell = True)
