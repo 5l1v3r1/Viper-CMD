@@ -25,14 +25,12 @@ print('\n')
 print(tc.tcolors.SUCCESS +'Viper-CMD Alpha 1.0.0\n'
       'by B3nac'+ tc.tcolors.ENDC)
 print(tc.tcolors.SYNTAX +'Welcome to Viper command terminal. Type help for list of commands.'+ tc.tcolors.ENDC)
-#I had to use Python 2.7 becuase some of the modules weren't cross compatable.
-
 
 class Vipercmd(cmd.Cmd):
     #Command example
 
     def do_greet(self, person):
-            print(tc.tcolors.WARNING + "hi" + tc.tcolors.ENDC)
+        print(tc.tcolors.WARNING + "hi" + tc.tcolors.ENDC)
 
     def do_help(self, commands):
         print('Current list of commands: greet, portscan, honeypot,'
