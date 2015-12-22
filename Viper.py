@@ -1,4 +1,3 @@
-import cmd
 import os
 import sys
 import subprocess
@@ -26,17 +25,74 @@ print(tc.tcolors.SUCCESS +'Viper-CMD Alpha 1.0.0\n'
       'by B3nac'+ tc.tcolors.ENDC)
 print(tc.tcolors.SYNTAX +'Welcome to Viper command terminal. Type help for list of commands.'+ tc.tcolors.ENDC)
 
-class Vipercmd(cmd.Cmd):
-    #Command example
+class Vipercmd(object):
 
-    def do_greet(self, person):
+    def __init__(self):
+        self.cmd = ''
+        self.done = False
+
+    def event_loop(self):
+        self.cmd = input('(Viper-CMD)> ')
+			
+        if self.cmd == 'greet':
+            self.greet()
+        elif self.cmd == 'help':
+            self.help()
+        elif self.cmd == 'playmusic':
+            self.playmusic() 
+        elif self.cmd == 'portscan':
+            self.portscan()
+        elif self.cmd == 'honeypot':
+            self.honeypot(self)
+        elif self.cmd == 'netping':
+            self.netping()
+        elif self.cmd == 'dl':
+            self.dl()
+        elif self.cmd == 'runf':
+            self.runf()
+        elif self.cmd == 'autocleanup':
+            self.autocleanup()
+        elif self.cmd == 'clean_trash':
+            self.clean_trash()
+        elif self.cmd == 'nautilus':
+            self.nautilus()
+        elif self.cmd == 'listcd':
+            self.listcd()
+        elif self.cmd == 'dirchange':
+            self.dirchange()
+        elif self.cmd== 'listf':
+            self.listf()
+        elif self.cmd == 'remf':
+            self.remf()
+        elif self.cmd == 'remdir':
+            self.remdir()
+        elif self.cmd == 'readf':
+            self.readf()
+        elif self.cmd == 'overwrite':
+            self.overwrite()
+        elif self.cmd == 'b64':
+            self.b64()
+        elif self.cmd == 'b64decrypt':
+            self.decryptb64()
+        elif self.cmd == 'exit':
+            self.exit()
+            
+        else:
+            print('Command does not exist,'
+	          'try help for list of commands')
+
+    def cmd_loop(self):
+        while not self.done:
+            self.event_loop()
+
+    def greet(self):
         print(tc.tcolors.WARNING + "hi" + tc.tcolors.ENDC)
 
-    def do_help(self, commands):
+    def help(self):
         print('Current list of commands: greet, portscan, honeypot,'
               ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, exit')
 
-    def do_playmusic(self, music):
+    def playmusic(self):
         #Works in Windows.
         #To-do add list.
         pygame.init()
@@ -52,9 +108,9 @@ class Vipercmd(cmd.Cmd):
 
     #Security Functions.
     #---------------------------------------------------------------------
-    def do_portscan(server_address, self):
+    def portscan(self):
         try:
-            server_address = int(raw_input("Enter a remote host: "))
+            server_address = int(input("Enter a remote host: "))
             remoteconnectionIP = socket.gethostbyname(server_address)
             for port in range(1,1025):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -70,7 +126,7 @@ class Vipercmd(cmd.Cmd):
         except ValueError:
             print(tc.tcolors.SYNTAX + "Invalid input value!" + tc.tcolors.ENDC)
 
-    def do_honeypot(sock, server_address):
+    def honeypot(sock, server_address):
 
        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
        server_address = ('', 443)
@@ -107,7 +163,7 @@ class Vipercmd(cmd.Cmd):
                finally:
                    connection.close()
 
-    def do_netping(self, ping):
+    def netping(self):
         print('Pinging network ips')
         for ping in range(1,10):
             ip = '127.0.0.' + str(ping)
@@ -121,7 +177,7 @@ class Vipercmd(cmd.Cmd):
 
 	#File and Navigation functions --------------------------------------
 
-    def do_dl(web, files):
+    def dl(self):
        print(tc.tcolors.SYNTAX + 'Downloads file to Viper directory.' + tc.tcolors.ENDC)
        try:
            web = input('What is the url?')
@@ -134,12 +190,12 @@ class Vipercmd(cmd.Cmd):
        else:
            print(tc.tcolors.SUCCESS + 'File downloaded!' + tc.tcolors.ENDC)
 
-    def do_runf(self, f):
+    def runf(self):
         print('If executing C or C++ program put ./ for Bash or Perl sh in front of file name.')
         #C and Bash work so far.
         f = subprocess.call(raw_input("Which file would you like to run? :"), shell=True)
             			
-    def do_autocleanup(self, clean):
+    def autocleanup(self):
        print(tc.tcolors.WARNING + "Only works on Debian or Arch Linux type distros." + tc.tcolors.ENDC)
        clean = 'sh ./Cleanup.sh'
        try:
@@ -148,7 +204,7 @@ class Vipercmd(cmd.Cmd):
        except:
        	   print(tc.tcolors.WARNING + "Not a Debian or Arch Linux distro?" + tc.tcolors.ENDC)
 
-    def do_clean_trash(self, t):
+    def clean_trash(self):
        print(tc.tcolors.WARNING + "Only works on Debian or Arch Linux type distros." + tc.tcolors.ENDC)
        t = 'sh ./cleantrash.sh'
        try:
@@ -157,7 +213,7 @@ class Vipercmd(cmd.Cmd):
        except:
            print(tc.tcolors.WARNING + "Not a Debian or Arch Linux distro?" + tc.tcolors.ENDC)
 
-    def do_nautilus(self, o):
+    def nautilus(self):
        print(tc.tcolors.WARNING + "Only works on Debian and Arch Linux type distros." + tc.tcolors.ENDC)
        o = 'sh ./opennautilus.sh'
        try:
@@ -166,11 +222,11 @@ class Vipercmd(cmd.Cmd):
        except:
            print(tc.tcolors.WARNING + "Not a Debian or Arch Linux distro?" + tc.tcolors.ENDC)
 
-    def do_listcd(self, cd):
+    def listcd(self):
 	    cd = os.getcwd()
 	    print(cd)
 
-    def do_dirchange(self, mow):
+    def dirchange(self):
         cd = os.getcwd()
         print(cd)
         try:
@@ -187,11 +243,11 @@ class Vipercmd(cmd.Cmd):
         else:
             print('Directory changed to', mow)
 
-    def do_listf(self, files):
+    def listf(self):
         mypath = os.getcwd()
         print(os.listdir(mypath))
 
-    def do_remf(self, F):
+    def remf(self):
         print(tc.tcolors.WARNING + 'File does not get sent to trashbin! It gets permanently deleted!' + tc.tcolors.ENDC)
         F = input("What file would you like to remove? :")
         try:
@@ -201,7 +257,7 @@ class Vipercmd(cmd.Cmd):
         else:
             print(tc.tcolors.SUCCESS + 'File removed!' + tc.tcolors.ENDC)
 
-    def do_remdir(self, F):
+    def remdir(self):
         print(tc.tcolors.WARNING + 'WARNING: This command deletes the whole directory and contents.' + tc.tcolors.ENDC)
         F = input("What directory would you like to remove? :")
         try:
@@ -211,7 +267,7 @@ class Vipercmd(cmd.Cmd):
         else:
             print(tc.tcolors.SUCCESS + 'Entire directory removed!' + tc.tcolors.ENDC)
 
-    def do_readf(self, yeeee):
+    def readf(self):
         yeeee = input('What file do you want to read? :')
         try:
             f = open(yeeee)
@@ -219,28 +275,27 @@ class Vipercmd(cmd.Cmd):
         except IOError:
             print(tc.tcolors.SYNTAX + 'File not found.' + tc.tcolors.ENDC)
 
-    def do_overwrite(self, yeeee):
+    def overwrite(self):
         yo = Overwrite.Mystuff()
         yo.overwrite()
 
-    def do_b64(self, passwd):
+    def b64(self):
         riot = input('Input password to encrypt. :')
         woh = base64.b64encode(riot.encode('ascii'))
         print(tc.tcolors.SUCCESS + woh.decode() + tc.tcolors.ENDC)
 
-    def do_decryptb64(self, decrypt):
+    def decryptb64(self):
         decode = input('Input password to decrypt. :')
         decrypt = base64.b64decode(decode.encode('ascii'))
         print(tc.tcolors.SUCCESS + decrypt.decode() + tc.tcolors.ENDC)
 
-    def do_EOF(self, line):
-        return True
+    def exit(self):
+        exit()
 
-    def do_exit(self, ex):
-        ex = exit()
-
-    def postloop(self):
-        print()
+def main():
+    start = Vipercmd()
+    start.event_loop()
+    start.cmd_loop()
 
 if __name__ == '__main__':
-    Vipercmd().cmdloop()
+    main()
