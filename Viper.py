@@ -124,11 +124,13 @@ class Vipercmd(cmd.Cmd):
     def do_dl(web, files):
        print(tc.tcolors.SYNTAX + 'Downloads file to Viper directory.' + tc.tcolors.ENDC)
        try:
-           web = raw_input('What is the url?')
-           files = raw_input('What file?')
+           web = input('What is the url?')
+           files = input('What file?')
            urllib.urlretrieve(web,files)
        except IOError:
            print(tc.tcolors.SYNTAX + 'File does not exist or url.' + tc.tcolors.ENDC)
+       except AttributeError:
+           print(tc.tcolors.SYNTAX + 'File does not exist or url may have been mistyped.' + tc.tcolors.ENDC)
        else:
            print(tc.tcolors.SUCCESS + 'File downloaded!' + tc.tcolors.ENDC)
 
