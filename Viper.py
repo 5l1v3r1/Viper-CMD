@@ -290,7 +290,7 @@ class Vipercmd(object):
         print(tc.tcolors.SUCCESS + decrypt.decode() + tc.tcolors.ENDC)
 
     def exit(self):
-        exit()
+        self.done = True
 
 def main():
     start = Vipercmd()
