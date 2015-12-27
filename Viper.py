@@ -7,7 +7,7 @@ import urllib
 import base64
 import Overwrite
 import tc
-import pygame
+#import pygame
 from os import listdir
 from os.path import isfile, join
 
@@ -38,8 +38,8 @@ class Vipercmd(object):
             self.greet()
         elif self.cmd == 'help':
             self.help()
-        elif self.cmd == 'playmusic':
-            self.playmusic() 
+        #elif self.cmd == 'playmusic':
+            #self.playmusic() 
         elif self.cmd == 'portscan':
             self.portscan()
         elif self.cmd == 'honeypot':
@@ -92,19 +92,19 @@ class Vipercmd(object):
         print('Current list of commands: greet, portscan, honeypot,'
               ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, exit')
 
-    def playmusic(self):
+    #def playmusic(self):
         #Works in Windows.
         #To-do add list.
-        pygame.init()
-        pygame.mixer.pre_init(44100, -16, 2, 128)
-        print(tc.tcolors.SYNTAX + 'Type the name of the song name with extension. ex: song.ogg' + tc.tcolors.ENDC)
-        print(tc.tcolors.WARNING + 'WARNING: Needs to be in same directory.' + tc.tcolors.ENDC)
-        try: 
-            music = input('What music would you like to play? ')
-            pygame.mixer.music.load(music)
-            pygame.mixer.music.play()
-        except pygame.error:
-            print(tc.tcolors.SYNTAX + 'No song with that name in this directory.' + tc.tcolors.ENDC)
+        #pygame.init()
+        #pygame.mixer.pre_init(44100, -16, 2, 128)
+        #print(tc.tcolors.SYNTAX + 'Type the name of the song name with extension. ex: song.ogg' + tc.tcolors.ENDC)
+        #print(tc.tcolors.WARNING + 'WARNING: Needs to be in same directory.' + tc.tcolors.ENDC)
+        #try: 
+            #music = input('What music would you like to play? ')
+            #pygame.mixer.music.load(music)
+            #pygame.mixer.music.play()
+        #except pygame.error:
+            #print(tc.tcolors.SYNTAX + 'No song with that name in this directory.' + tc.tcolors.ENDC)
 
     #Security Functions.
     #---------------------------------------------------------------------
