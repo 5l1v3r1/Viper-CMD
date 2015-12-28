@@ -16,6 +16,7 @@ class Vipercmd(object):
 
     def __init__(self):
         self.cmd = ''
+        self.done = False
 
     def cmd_loop(self):
         while not self.done:
@@ -157,6 +158,14 @@ class Vipercmd(object):
            print(tc.tcolors.SUCCESS + "Opened Nautilus!" + tc.tcolors.ENDC)
        except:
            print(tc.tcolors.WARNING + "Not a Debian or Arch Linux distro?" + tc.tcolors.ENDC)
+    
+    def connected(self):
+        scan = 'sh ./connected.sh'
+        try:
+            subprocess.call(scan, shell = True)
+            print(tc.tcolors.SUCCESS + "Scan completed!" + tc.tcolors.ENDC)
+        except:
+            print(tc.tcolors.WARNING + "Uh oh wtf." + tc.tcolors.ENDC)
 
     def listcd(self):
 	    cd = os.getcwd()
@@ -226,6 +235,7 @@ class Vipercmd(object):
         print(tc.tcolors.SUCCESS + decrypt.decode() + tc.tcolors.ENDC)
 
     def exit(self):
+        self.done = True
         exit()
 
 def main():

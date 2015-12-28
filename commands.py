@@ -60,6 +60,8 @@ class Command(object):
             Viper.Vipercmd().b64()
         elif self.cmd == 'b64decrypt':
             Viper.Vipercmd().decryptb64()
+        elif self.cmd == 'connections':
+            Viper.Vipercmd().connected()
         elif self.cmd == 'exit':
             Viper.Vipercmd().exit()
             
