@@ -6,7 +6,9 @@ import shutil
 import urllib
 import base64
 import Overwrite
+import commands
 import tc
+
 #import pygame
 from os import listdir
 from os.path import isfile, join
@@ -29,61 +31,10 @@ class Vipercmd(object):
 
     def __init__(self):
         self.cmd = ''
-        self.done = False
-
-    def event_loop(self):
-        self.cmd = input('(Viper-CMD)> ')
-			
-        if self.cmd == 'greet':
-            self.greet()
-        elif self.cmd == 'help':
-            self.help()
-        #elif self.cmd == 'playmusic':
-            #self.playmusic() 
-        elif self.cmd == 'portscan':
-            self.portscan()
-        elif self.cmd == 'honeypot':
-            self.honeypot(self)
-        elif self.cmd == 'netping':
-            self.netping()
-        elif self.cmd == 'dl':
-            self.dl()
-        elif self.cmd == 'runf':
-            self.runf()
-        elif self.cmd == 'autocleanup':
-            self.autocleanup()
-        elif self.cmd == 'clean_trash':
-            self.clean_trash()
-        elif self.cmd == 'nautilus':
-            self.nautilus()
-        elif self.cmd == 'listcd':
-            self.listcd()
-        elif self.cmd == 'dirchange':
-            self.dirchange()
-        elif self.cmd== 'listf':
-            self.listf()
-        elif self.cmd == 'remf':
-            self.remf()
-        elif self.cmd == 'remdir':
-            self.remdir()
-        elif self.cmd == 'readf':
-            self.readf()
-        elif self.cmd == 'overwrite':
-            self.overwrite()
-        elif self.cmd == 'b64':
-            self.b64()
-        elif self.cmd == 'b64decrypt':
-            self.decryptb64()
-        elif self.cmd == 'exit':
-            self.exit()
-            
-        else:
-            print('Command does not exist,'
-	          'try help for list of commands')
 
     def cmd_loop(self):
         while not self.done:
-            self.event_loop()
+            commands.Command().event_loop()
 
     def greet(self):
         print(tc.tcolors.WARNING + "hi" + tc.tcolors.ENDC)
@@ -290,11 +241,12 @@ class Vipercmd(object):
         print(tc.tcolors.SUCCESS + decrypt.decode() + tc.tcolors.ENDC)
 
     def exit(self):
-        self.done = True
+        exit()
 
 def main():
+    com = commands.Command()
+    com.event_loop()
     start = Vipercmd()
-    start.event_loop()
     start.cmd_loop()
 
 if __name__ == '__main__':
