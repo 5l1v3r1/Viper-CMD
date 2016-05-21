@@ -66,7 +66,7 @@ class Vipercmd(object):
     def honeypot(sock, server_address):
 
        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-       server_address = ('', 443)
+       server_address = ('', 22)
        try:
            sock.bind(server_address)
        except socket.error:
@@ -83,6 +83,7 @@ class Vipercmd(object):
                    print('client connected:', client_address, file = sys.stderr)
                    print('Computer name:', compname, file = sys.stderr)
                    while True:
+                       connection.send(bytes('Jokes on you.', 'UTF-8'))
                        data = connection.recv(16)
                        print('recieved "%s"', data, file = sys.stderr)
                        if data:
@@ -98,7 +99,7 @@ class Vipercmd(object):
                            break
 
                finally:
-                   connection.close()
+                   print('restarting')
 
     def netping(self):
         print('Pinging network ips')
