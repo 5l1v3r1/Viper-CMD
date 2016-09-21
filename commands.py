@@ -11,7 +11,7 @@ print(tc.tcolors.WARNING +'            --  $$$$$  $      $      '+ tc.tcolors.EN
 print(tc.tcolors.WARNING +'                $       $$$$  $      '+ tc.tcolors.ENDC)
 print(tc.tcolors.WARNING +'                $                    '+ tc.tcolors.ENDC)
 print('\n')
-print(tc.tcolors.SUCCESS +'Viper-CMD Alpha 1.0.0\n'
+print(tc.tcolors.SUCCESS +'Viper-CMD Alpha 1.0.1\n'
       'by B3nac'+ tc.tcolors.ENDC)
 print(tc.tcolors.SYNTAX +'Welcome to Viper command terminal. Type help for list of commands.'+ tc.tcolors.ENDC)
 
