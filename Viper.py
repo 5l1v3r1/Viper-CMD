@@ -28,7 +28,7 @@ class Vipercmd(object):
 
     def help(self):
         print('Current list of commands: greet, portscan, honeypot,'
-              ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, exit')
+              ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, exit')
 
     def keyboard_m(self):
        os.system('python keyboardmonitor.py')
