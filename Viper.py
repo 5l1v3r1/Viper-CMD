@@ -28,7 +28,7 @@ class Vipercmd(object):
 
     def help(self):
         print('Current list of commands: greet, portscan, honeypot,'
-              ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, exit')
+              ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall, exit')
 
     def keyboard_m(self):
        os.system('python keyboardmonitor.py')
@@ -238,6 +238,14 @@ class Vipercmd(object):
         decode = input('Input password to decrypt. :')
         decrypt = base64.b64decode(decode.encode('ascii'))
         print(tc.tcolors.SUCCESS + decrypt.decode() + tc.tcolors.ENDC)
+
+    def debinstall(self): 
+        inst = "./debinstall.sh"
+        try:
+            print(tc.tcolors.SUCCESS + "Installing all .deb packages!" + tc.tcolors.ENDC)
+            subprocess.call(inst, shell = True)
+        except:
+            print(tc.tcolors.WARNING + "Invalid directory?" + tc.tcolors.ENDC)
 
     def exit(self):
         self.done = True

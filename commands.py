@@ -64,6 +64,8 @@ class Command(object):
             Viper.Vipercmd().connected()
         elif self.cmd == 'monitor':
             Viper.Vipercmd().keyboard_m()
+        elif self.cmd == 'debinstall':
+            Viper.Vipercmd().debinstall()
         elif self.cmd == 'exit':
             Viper.Vipercmd().exit()
             
