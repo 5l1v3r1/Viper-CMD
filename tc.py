@@ -1,3 +1,5 @@
+#Class for terminal colors using ascii.
+
 class tcolors:
     SYNTAX = '\033[93m'
     WARNING = '\033[91m'
