@@ -181,7 +181,7 @@ class Vipercmd(object):
         print(cd)
         try:
 	    #Had to switch to 2.7 string input because input() and os.chdir() are incompatable?
-            mow = raw_input("What directory?: ")
+            mow = input("What directory?: ")
             os.chdir(mow)
         except NameError:
             print('Name error Uh oh.')
