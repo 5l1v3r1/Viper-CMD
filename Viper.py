@@ -182,11 +182,10 @@ class Vipercmd(object):
         try:
             mow = input("What directory?: ")
             os.chdir(mow)
-        except NameError:
-            print('Name error Uh oh.')
         except SyntaxError:
             print('Syntax error Uh oh.')
-        except WindowsError:
+        except NameError:
+            raise WindowsError from None
             print('Windows can not find the specified directory.'
                   'Did you include the entire path?')
         except FileNotFoundError:
