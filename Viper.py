@@ -180,7 +180,6 @@ class Vipercmd(object):
         cd = os.getcwd()
         print(cd)
         try:
-	    #Had to switch to 2.7 string input because input() and os.chdir() are incompatable?
             mow = input("What directory?: ")
             os.chdir(mow)
         except NameError:
@@ -190,6 +189,8 @@ class Vipercmd(object):
         except WindowsError:
             print('Windows can not find the specified directory.'
                   'Did you include the entire path?')
+        except FileNotFoundError:
+            print('Directory or path does not exist!')
         else:
             print('Directory changed to', mow)
 
