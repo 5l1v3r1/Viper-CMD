@@ -70,5 +70,5 @@ class Command(object):
             Viper.Vipercmd().exit()
             
         else:
-            print('Command does not exist,'
-	          'try help for list of commands')
+            print('Command does not exist, '
+	          'type help for list of commands.')
