@@ -9,7 +9,6 @@ import Overwrite
 import commands
 import tc
 import pyxhook
-#import pygame
 from os import listdir
 from os.path import isfile, join
 
@@ -33,26 +32,12 @@ class Vipercmd(object):
     def keyboard_m(self):
        os.system('python keyboardmonitor.py')
        
-    #def playmusic(self):
-        #Works in Windows.
-        #To-do add list.
-        #pygame.init()
-        #pygame.mixer.pre_init(44100, -16, 2, 128)
-        #print(tc.tcolors.SYNTAX + 'Type the name of the song name with extension. ex: song.ogg' + tc.tcolors.ENDC)
-        #print(tc.tcolors.WARNING + 'WARNING: Needs to be in same directory.' + tc.tcolors.ENDC)
-        #try: 
-            #music = input('What music would you like to play? ')
-            #pygame.mixer.music.load(music)
-            #pygame.mixer.music.play()
-        #except pygame.error:
-            #print(tc.tcolors.SYNTAX + 'No song with that name in this directory.' + tc.tcolors.ENDC)
-
     #Security Functions.
-    #---------------------------------------------------------------------
+    #--------------------------------------------------------------
     def portscan(self):
         try:
-            server_address = int(input("Enter a remote host: "))
-            remoteconnectionIP = socket.gethostbyname(server_address)
+            
+            remoteconnectionIP = socket.gethostbyname('127.0.0.1')
             for port in range(1,1025):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 result = sock.connect_ex((remoteconnectionIP, port))
