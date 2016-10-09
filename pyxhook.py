@@ -248,7 +248,7 @@ class HookManager(threading.Thread):
         if event.type == X.KeyPress:
             MessageName = "key down"
         elif event.type == X.KeyRelease:
-            MessageName = "key up"
+           MessageName = "key up"
         return pyxhookkeyevent(storewm["handle"], storewm["name"], storewm["class"], self.lookup_keysym(keysym), self.asciivalue(keysym), False, event.detail, MessageName)
     
     def makemousehookevent(self, event):
@@ -322,7 +322,9 @@ class pyxhookkeyevent:
         self.MessageName = MessageName
     
     def __str__(self):
-        return "Window Handle: " + str(self.Window) + "\nWindow Name: " + str(self.WindowName) + "\nWindow's Process Name: " + str(self.WindowProcName) + "\nKey Pressed: " + str(self.Key) + "\nAscii Value: " + str(self.Ascii) + "\nKeyID: " + str(self.KeyID) + "\nScanCode: " + str(self.ScanCode) + "\nMessageName: " + str(self.MessageName) + "\n"
+      return "\n" + str(self.Key) 
+
+      #return "Window Handle: " + str(self.Window) + "\nWindow Name: " + str(self.WindowName) + "\nWindow's Process Name: " + str(self.WindowProcName) + "\nKey Pressed: " + str(self.Key) + "\nAscii Value: " + str(self.Ascii) + "\nKeyID: " + str(self.KeyID) + "\nScanCode: " + str(self.ScanCode) + "\nMessageName: " + str(self.MessageName) + "\n"
 
 class pyxhookmouseevent:
     """This is the class that is returned with each key event.f
@@ -343,7 +345,8 @@ class pyxhookmouseevent:
         self.MessageName = MessageName
     
     def __str__(self):
-        return "Window Handle: " + str(self.Window) + "\nWindow Name: " + str(self.WindowName) + "\nWindow's Process Name: " + str(self.WindowProcName) + "\nPosition: " + str(self.Position) + "\nMessageName: " + str(self.MessageName) + "\n"
+       pass
+       #return "Window Handle: " + str(self.Window) + "\nWindow Name: " + str(self.WindowName) + "\nWindow's Process Name: " + str(self.WindowProcName) + "\nPosition: " + str(self.Position) + "\nMessageName: " + str(self.MessageName) + "\n"
 
 #######################################################################
 #########################END CLASS DEF#################################
