@@ -26,8 +26,8 @@ class Vipercmd(object):
         print(tc.tcolors.WARNING + "hi" + tc.tcolors.ENDC)
 
     def help(self):
-        print('Current list of commands: greet, portscan, honeypot,'
-              ' listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit.')
+        print(tc.tcolors.SYNTAX + "Current list of commands: greet, portscan, honeypot,"
+              " listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit." + tc.tcolors.ENDC)
 
     def keyboard_m(self):
        os.system('python keyboardmonitor.py')
