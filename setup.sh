@@ -10,4 +10,12 @@ if [ -n "$(command -v apt-get)" ]; then
 
 elif [ -n "$(command -v pacman)" ]; then
     pacman -S python
+fi
+
+echo -e "\e[1;33mInstalling Xlib for arm devices.\e[0m"
+if [ -n "$(command -v apt-get)" ]; then
+    apt-get -y install libx11-dev
+
+elif [ -n "$(command -v pacman)" ]; then
+     pacman -S libx11-dev
 fi 
