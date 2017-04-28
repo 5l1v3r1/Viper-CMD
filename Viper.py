@@ -29,6 +29,10 @@ class Vipercmd(object):
         print(tc.tcolors.SYNTAX + "Current list of commands: greet, portscan, honeypot,"
               " listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit." + tc.tcolors.ENDC)
 
+    def domain_enum(self):
+        #Adding domain enumeration and discovery here.
+        pass
+
     def keyboard_m(self):
        os.system('python keyboardmonitor.py')
        
