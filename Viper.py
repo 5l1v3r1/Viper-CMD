@@ -31,9 +31,13 @@ class Vipercmd(object):
 
     def domains(self):
         print(tc.tcolors.SYNTAX + "Which domain would you like to scan?" + tc.tcolors.ENDC)
-        input(str(""))
         #Adding domain enumeration and discovery here.
-        pass
+        domainscan = 'sh ./knockpyinput.sh'
+        try:
+            subprocess.call(domainscan, shell = True)
+            print(tc.tcolors.SUCCESS + "Finished knockpy scan!" + tc.tcolors.ENDC)
+        except:
+            print(tc.tcolors.WARNING + "Is knockpy not installed?" + tc.tcolors.ENDC)
 
     def keyboard_m(self):
        os.system('python keyboardmonitor.py')

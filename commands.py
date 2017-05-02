@@ -24,10 +24,10 @@ class Command(object):
             Viper.Vipercmd().greet()
         elif self.cmd == 'help':
             Viper.Vipercmd().help()
-        elif self.domain_enum == 'domain_enum':
-             self.Viper.Vipercmd.domains() 
+        elif self.cmd == 'domains':
+            Viper.Vipercmd().domains() 
         elif self.cmd == 'portscan':
-            Viper.Vipercmd().portscan()
+             self.Viper.Vipercmd().portscan()
         elif self.cmd == 'honeypot':
             Viper.Vipercmd().honeypot(self)
         elif self.cmd == 'netping':

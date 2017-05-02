@@ -1,3 +1,7 @@
+Viper CMD 1.0.2
+=====
+Working on domain scan automation.
+
 Viper CMD 1.0.1
 =====
 Converted to using Python 3.
