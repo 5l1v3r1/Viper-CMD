@@ -24,8 +24,8 @@ class Command(object):
             Viper.Vipercmd().greet()
         elif self.cmd == 'help':
             Viper.Vipercmd().help()
-        #elif self.cmd == 'playmusic':
-            #self.playmusic() 
+        elif self.domain_enum == 'domain_enum':
+             self.Viper.Vipercmd.domains() 
         elif self.cmd == 'portscan':
             Viper.Vipercmd().portscan()
         elif self.cmd == 'honeypot':
