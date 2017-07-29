@@ -1,6 +1,6 @@
 Viper CMD 1.0.2
 =====
-Working on domain scan automation.
+~~Working on domain scan automation.~~ Completed.
 
 Viper CMD 1.0.1
 =====
@@ -23,8 +23,8 @@ A fun project I've been working on. I want to see exactly how much I can do with
 + Now able to open Nautilus from CMD.
 
 ##To-do: 
-+ ~~Get ANSI colors to work in Windows.~~ More trouble than It's worth. 
-+ ~~Convert more functions to Python 3 for efficiency.
++ ~~Get ANSI colors to work in Windows. More trouble than It's worth.~~ 
++ ~~Convert more functions to Python 3 for efficiency.~~
 
 When using dirchange command the full path to directory must be put in. Working on making this easier.
 
