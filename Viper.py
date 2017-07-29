@@ -29,15 +29,17 @@ class Vipercmd(object):
         print(tc.tcolors.SYNTAX + "Current list of commands: greet, domains, portscan, honeypot,"
               " listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit." + tc.tcolors.ENDC)
 
-    def domains(self):
-        print(tc.tcolors.SYNTAX + "Which domain would you like to scan?" + tc.tcolors.ENDC)
+    def recon(self):
+        print(tc.tcolors.SYNTAX + "What domain would you like to scan?" + tc.tcolors.ENDC)
+        print("Enter url:")
+        url = input('')
         #Adding domain enumeration and discovery here.
-        domainscan = 'sh ./knockpyinput.sh'
+        domainscan = './recon_scan_all.sh '+ url
         try:
             subprocess.call(domainscan, shell = True)
-            print(tc.tcolors.SUCCESS + "Finished knockpy scan!" + tc.tcolors.ENDC)
+            print(tc.tcolors.SUCCESS + "Finished recon scan!" + tc.tcolors.ENDC)
         except:
-            print(tc.tcolors.WARNING + "Is knockpy not installed?" + tc.tcolors.ENDC)
+            print(tc.tcolors.WARNING + "Recon programs not installed?" + tc.tcolors.ENDC)
 
     def keyboard_m(self):
        os.system('python keyboardmonitor.py')

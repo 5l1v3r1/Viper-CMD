@@ -18,4 +18,12 @@ if [ -n "$(command -v apt-get)" ]; then
 
 elif [ -n "$(command -v pacman)" ]; then
      pacman -S libx11-dev
-fi 
+fi
+
+echo -e "\e[1;33mInstalling Xlib for python 3.\e[0m"
+if [ -n "$(command -v apt-get)" ]; then
+	    apt-get -y install python3-xlib
+
+    elif [ -n "$(command -v pacman)" ]; then
+	         pacman -S python3-xlib
+fi
