@@ -54,8 +54,6 @@ class Command(object):
             Viper.Vipercmd().remdir()
         elif self.cmd == 'readf':
             Viper.Vipercmd().readf()
-        elif self.cmd == 'overwrite':
-            Viper.Vipercmd().overwrite()
         elif self.cmd == 'b64':
             Viper.Vipercmd().b64()
         elif self.cmd == 'b64decrypt':
