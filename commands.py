@@ -24,10 +24,8 @@ class Command(object):
 
         if self.cmd == 'help':
             Viper.Vipercmd().help()
-        elif self.cmd == 'recon':
-            Viper.Vipercmd().recon()
         elif self.cmd == 'portscan':
-            self.Viper.Vipercmd().portscan()
+            Viper.Vipercmd().portscan()
         elif self.cmd == 'honeypot':
             Viper.Vipercmd().honeypot(self)
         elif self.cmd == 'netping':

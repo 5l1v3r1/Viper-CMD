@@ -22,7 +22,7 @@ class Vipercmd(object):
             commands.Command().event_loop()
 
     def help(self):
-        print(tc.tcolors.SYNTAX + "Current list of commands: recon, portscan, honeypot,"
+        print(tc.tcolors.SYNTAX + "Current list of commands: portscan, honeypot,"
               " listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit." + tc.tcolors.ENDC)
 
     def keyboard_m(self):
@@ -32,7 +32,6 @@ class Vipercmd(object):
     # --------------------------------------------------------------
     def portscan(self):
         try:
-
             remoteconnectionIP = socket.gethostbyname('127.0.0.1')
             for port in range(1, 1025):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
