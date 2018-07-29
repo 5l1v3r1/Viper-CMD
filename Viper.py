@@ -30,7 +30,7 @@ class Vipercmd(object):
               "What domain would you like to scan?" + tc.tcolors.ENDC)
         print("Enter url:")
         url = input('')
-        # Adding domain enumeration and discovery here.
+        #Put your alias here or path to recon tools.
         domainscan = 'rs' + url
         try:
             subprocess.call(domainscan, shell=True)
