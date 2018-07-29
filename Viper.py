@@ -22,7 +22,7 @@ class Vipercmd(object):
             commands.Command().event_loop()
 
     def help(self):
-        print(tc.tcolors.SYNTAX + "Current list of commands: portscan, honeypot,"
+        print(tc.tcolors.SYNTAX + "Current list of commands: portscan, honeypot, b64decrypt"
               " listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit." + tc.tcolors.ENDC)
 
     def keyboard_m(self):
@@ -121,8 +121,7 @@ class Vipercmd(object):
     def runf(self):
         print('If executing C or C++ program put ./ for Bash or Perl sh in front of file name.')
         # C and Bash work so far.
-        f = subprocess.call(
-            raw_input("Which file would you like to run? :"), shell=True)
+        f = subprocess.call(input("Which file would you like to run? :"), shell=True)
 
     def autocleanup(self):
         print(tc.tcolors.WARNING +
@@ -158,14 +157,6 @@ class Vipercmd(object):
             print(tc.tcolors.WARNING +
                   "Not a Debian or Arch Linux distro?" + tc.tcolors.ENDC)
 
-    def connected(self):
-        scan = 'sh ./connected.sh'
-        try:
-            subprocess.call(scan, shell=True)
-            print(tc.tcolors.SUCCESS + "Scan completed!" + tc.tcolors.ENDC)
-        except:
-            print(tc.tcolors.WARNING + "Uh oh wtf." + tc.tcolors.ENDC)
-
     def listcd(self):
         cd = os.getcwd()
         print(cd)
@@ -174,8 +165,8 @@ class Vipercmd(object):
         cd = os.getcwd()
         print(cd)
         try:
-            mow = input("What directory?: ")
-            os.chdir(mow)
+            cdir = input("What directory?: ")
+            os.chdir(cdir)
         except SyntaxError:
             print('Syntax error Uh oh.')
         except NameError:
@@ -222,40 +213,26 @@ class Vipercmd(object):
         except IOError:
             print(tc.tcolors.SYNTAX + 'File not found.' + tc.tcolors.ENDC)
 
-    def overwrite(self):
-        yo = Overwrite.Mystuff()
-        yo.overwrite()
 
     def b64(self):
         riot = input('Input password to encrypt. :')
         woh = base64.b64encode(riot.encode('ascii'))
         print(tc.tcolors.SUCCESS + woh.decode() + tc.tcolors.ENDC)
 
-    def decryptb64(self):
+    def decodeb64(self):
         decode = input('Input password to decrypt. :')
-        decrypt = base64.b64decode(decode.encode('ascii'))
-        print(tc.tcolors.SUCCESS + decrypt.decode() + tc.tcolors.ENDC)
-
-    def debinstall(self):
-        inst = "./debinstall.sh"
-        try:
-            print(tc.tcolors.SUCCESS +
-                  "Installing all .deb packages!" + tc.tcolors.ENDC)
-            subprocess.call(inst, shell=True)
-        except:
-            print(tc.tcolors.WARNING + "Invalid directory?" + tc.tcolors.ENDC)
+        run = base64.b64decode(decode.encode('UTF-8'))
+        print(tc.tcolors.SUCCESS + run.decode() + tc.tcolors.ENDC)
 
     def exit(self):
         self.done = True
         exit()
-
 
 def main():
     com = commands.Command()
     com.event_loop()
     start = Vipercmd()
     start.cmd_loop()
-
 
 if __name__ == '__main__':
     main()
