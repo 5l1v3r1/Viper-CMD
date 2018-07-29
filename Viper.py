@@ -21,11 +21,8 @@ class Vipercmd(object):
         while not self.done:
             commands.Command().event_loop()
 
-    def greet(self):
-        print(tc.tcolors.WARNING + "hi" + tc.tcolors.ENDC)
-
     def help(self):
-        print(tc.tcolors.SYNTAX + "Current list of commands: greet, domains, portscan, honeypot,"
+        print(tc.tcolors.SYNTAX + "Current list of commands: recon, portscan, honeypot,"
               " listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit." + tc.tcolors.ENDC)
 
     def recon(self):
@@ -34,7 +31,7 @@ class Vipercmd(object):
         print("Enter url:")
         url = input('')
         # Adding domain enumeration and discovery here.
-        domainscan = './recon_scan_all.sh ' + url
+        domainscan = 'rs' + url
         try:
             subprocess.call(domainscan, shell=True)
             print(tc.tcolors.SUCCESS + "Finished recon scan!" + tc.tcolors.ENDC)
