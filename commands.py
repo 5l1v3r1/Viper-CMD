@@ -55,7 +55,7 @@ class Command(object):
         elif self.cmd == 'b64':
             Viper.Vipercmd().b64()
         elif self.cmd == 'b64decrypt':
-            Viper.Vipercmd().decryptb64()
+            Viper.Vipercmd().decodeb64()
         elif self.cmd == 'connections':
             Viper.Vipercmd().connected()
         elif self.cmd == 'monitor':
