@@ -1,33 +1,35 @@
 import Viper
 import tc
 
-print(tc.tcolors.WARNING +'/$/       //                         '+ tc.tcolors.ENDC)
-print(tc.tcolors.WARNING +'\$\      //                          '+ tc.tcolors.ENDC)
-print(tc.tcolors.WARNING +' \$\    //  __                       '+ tc.tcolors.ENDC)
-print(tc.tcolors.WARNING +'  \$\  //   ||  $$$$$  $$$$$  $$$$   '+ tc.tcolors.ENDC)
-print(tc.tcolors.WARNING +'   \$\//    ||  $    $ $   $  $   $  '+ tc.tcolors.ENDC)
-print(tc.tcolors.WARNING +'    \$/     ||  $    $ $ $$$  $      '+ tc.tcolors.ENDC)
-print(tc.tcolors.WARNING +'            --  $$$$$  $      $      '+ tc.tcolors.ENDC)
-print(tc.tcolors.WARNING +'                $       $$$$  $      '+ tc.tcolors.ENDC)
-print(tc.tcolors.WARNING +'                $                    '+ tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + '/$/       //                         ' + tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + '\$\      //                          ' + tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + ' \$\    //  __                       ' + tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + '  \$\  //   ||  $$$$$  $$$$$  $$$$   ' + tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + '   \$\//    ||  $    $ $   $  $   $  ' + tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + '    \$/     ||  $    $ $ $$$  $      ' + tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + '            --  $$$$$  $      $      ' + tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + '                $       $$$$  $      ' + tc.tcolors.ENDC)
+print(tc.tcolors.WARNING + '                $                    ' + tc.tcolors.ENDC)
 print('\n')
-print(tc.tcolors.SUCCESS +'Viper-CMD Alpha 1.0.2\n'
-      'by B3nac'+ tc.tcolors.ENDC)
-print(tc.tcolors.SYNTAX +'Welcome to Viper command terminal. Type help for a list of commands.'+ tc.tcolors.ENDC)
+print(tc.tcolors.SUCCESS + 'Viper-CMD Alpha 1.0.2\n'
+      'by B3nac' + tc.tcolors.ENDC)
+print(tc.tcolors.SYNTAX +
+      'Welcome to Viper command terminal. Type help for a list of commands.' + tc.tcolors.ENDC)
+
 
 class Command(object):
 
     def event_loop(self):
         self.cmd = input('(Viper-CMD)> ')
-			
+
         if self.cmd == 'greet':
             Viper.Vipercmd().greet()
         elif self.cmd == 'help':
             Viper.Vipercmd().help()
         elif self.cmd == 'recon':
-            Viper.Vipercmd().recon() 
+            Viper.Vipercmd().recon()
         elif self.cmd == 'portscan':
-             self.Viper.Vipercmd().portscan()
+            self.Viper.Vipercmd().portscan()
         elif self.cmd == 'honeypot':
             Viper.Vipercmd().honeypot(self)
         elif self.cmd == 'netping':
@@ -46,7 +48,7 @@ class Command(object):
             Viper.Vipercmd().listcd()
         elif self.cmd == 'dirchange':
             Viper.Vipercmd().dirchange()
-        elif self.cmd== 'listf':
+        elif self.cmd == 'listf':
             Viper.Vipercmd().listf()
         elif self.cmd == 'remf':
             Viper.Vipercmd().remf()
@@ -62,11 +64,9 @@ class Command(object):
             Viper.Vipercmd().connected()
         elif self.cmd == 'monitor':
             Viper.Vipercmd().keyboard_m()
-        elif self.cmd == 'debinstall':
-            Viper.Vipercmd().debinstall()
         elif self.cmd == 'exit':
             Viper.Vipercmd().exit()
-            
+
         else:
             print('Command does not exist, '
-	          'type help for list of commands.')
+                  'type help for list of commands.')
