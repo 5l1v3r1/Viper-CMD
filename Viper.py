@@ -25,20 +25,6 @@ class Vipercmd(object):
         print(tc.tcolors.SYNTAX + "Current list of commands: recon, portscan, honeypot,"
               " listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit." + tc.tcolors.ENDC)
 
-    def recon(self):
-        print(tc.tcolors.SYNTAX +
-              "What domain would you like to scan?" + tc.tcolors.ENDC)
-        print("Enter url:")
-        url = input('')
-        #Put your alias here or path to recon tools.
-        domainscan = 'rs' + url
-        try:
-            subprocess.call(domainscan, shell=True)
-            print(tc.tcolors.SUCCESS + "Finished recon scan!" + tc.tcolors.ENDC)
-        except:
-            print(tc.tcolors.WARNING +
-                  "Recon programs not installed?" + tc.tcolors.ENDC)
-
     def keyboard_m(self):
         os.system('python keyboardmonitor.py')
 
@@ -78,14 +64,14 @@ class Vipercmd(object):
                 print('starting up on', server_address, file=sys.stderr)
                 sock.getsockname()
                 sock.listen(1)
-                print('waiting for a connection from sneaky mofackles.', file=sys.stderr)
+                print('waiting for a connection.', file=sys.stderr)
                 connection, client_address = sock.accept()
                 compname = socket.gethostname()
                 try:
                     print('client connected:', client_address, file=sys.stderr)
                     print('Computer name:', compname, file=sys.stderr)
                     while True:
-                        connection.send(bytes('Jokes on you.', 'UTF-8'))
+                        connection.send(bytes('Got em.', 'UTF-8'))
                         data = connection.recv(16)
                         print('recieved "%s"', data, file=sys.stderr)
                         if data:
