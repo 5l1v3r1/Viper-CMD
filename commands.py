@@ -22,9 +22,7 @@ class Command(object):
     def event_loop(self):
         self.cmd = input('(Viper-CMD)> ')
 
-        if self.cmd == 'greet':
-            Viper.Vipercmd().greet()
-        elif self.cmd == 'help':
+        if self.cmd == 'help':
             Viper.Vipercmd().help()
         elif self.cmd == 'recon':
             Viper.Vipercmd().recon()
