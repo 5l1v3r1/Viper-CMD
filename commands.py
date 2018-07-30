@@ -28,6 +28,8 @@ class Command(object):
             Viper.Vipercmd().portscan()
         elif self.cmd == 'honeypot':
             Viper.Vipercmd().honeypot(self)
+        elif self.cmd == 'escape':
+            Viper.Vipercmd().escape()
         elif self.cmd == 'netping':
             Viper.Vipercmd().netping()
         elif self.cmd == 'dl':

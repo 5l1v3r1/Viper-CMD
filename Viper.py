@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+import pty
 import socket
 import shutil
 import urllib
@@ -87,6 +88,9 @@ class Vipercmd(object):
 
                 finally:
                     print('restarting')
+
+    def escape(self):
+        pty.spawn("bin/bash")
 
     def netping(self):
         print('Pinging network ips')
@@ -212,7 +216,6 @@ class Vipercmd(object):
             print(f.readlines())
         except IOError:
             print(tc.tcolors.SYNTAX + 'File not found.' + tc.tcolors.ENDC)
-
 
     def b64(self):
         riot = input('Input password to encrypt. :')
