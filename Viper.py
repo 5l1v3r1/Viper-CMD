@@ -90,7 +90,7 @@ class Vipercmd(object):
                     print('restarting')
 
     def escape(self):
-        pty.spawn("bin/bash")
+        pty.spawn("/bin/bash")
 
     def netping(self):
         print('Pinging network ips')
