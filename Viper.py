@@ -23,7 +23,7 @@ class Vipercmd(object):
             commands.Command().event_loop()
 
     def help(self):
-        print(tc.tcolors.SYNTAX + "Current list of commands: portscan, honeypot, b64decrypt"
+        print(tc.tcolors.SYNTAX + "Current list of commands: portscan, honeypot, b64decode, escape"
               " listcd, dirchange, dl, listf, remf, autocleanup, clean_trash, remdir, readf, runf, sechash, b64, monitor, debinstall and exit." + tc.tcolors.ENDC)
 
     def keyboard_m(self):
